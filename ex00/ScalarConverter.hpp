@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <cmath>
+#include <limits>
 
 class ScalarConverter {
     private:

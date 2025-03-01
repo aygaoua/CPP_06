@@ -69,7 +69,7 @@ void ScalarConverter::convert (const std::string &input)
             throw ("Invalid input");
         if (input.length() != 0 && input[input.length() - 1] == 'f' && input.find('.', 0) != std::string::npos)
             temp = input.substr(0, input.length() - 1);
-        double value = std::strtod(temp.c_str(), &end_ptr);
+        double value = strtod(temp.c_str(), &end_ptr);
         if (*end_ptr || input == ".")
             throw ("Invalid input");
 
