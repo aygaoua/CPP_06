@@ -1,11 +1,12 @@
 #include "Serializer.hpp"
 
 int main(){
+    // Serializer k;
     uintptr_t raw = 15;
 
     Data *ptr;
     ptr = Serializer::deserialize(raw);
-    std::cout << ptr << "<----\n";
+    std::cout << "---->`" << ptr << "`<----\n";
 
     Data *gg = Serializer::deserialize(raw);
 
@@ -13,7 +14,7 @@ int main(){
 
     kk = Serializer::serialize(gg);
 
-    std::cout << kk << "<----\n";
+    std::cout << "---->`" << kk << "`<----\n";
 
     return (0);
 }

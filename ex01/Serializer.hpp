@@ -7,11 +7,12 @@
 #include <stdint.h>
 
 class Serializer{
-    public:
+    private:
     /*----------------------- Orthodox Canonical Form -----------------------*/
         Serializer		();
 		Serializer		(Serializer const & src);
 		Serializer&		operator =(const Serializer& b);
+    public:
 		~Serializer();
     /*-----------------------------------------------------------------------*/
 
