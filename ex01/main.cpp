@@ -2,19 +2,16 @@
 
 int main(){
     // Serializer k;
-    uintptr_t raw = 15;
 
-    Data *ptr;
-    ptr = Serializer::deserialize(raw);
+    Data *ptr = new Data();
+    ptr->data_int = 1337;
     std::cout << "---->`" << ptr << "`<----\n";
+    std::cout << "---->`" << ptr->data_int << "`<----\n";
+    uintptr_t raw;
 
-    Data *gg = Serializer::deserialize(raw);
+    raw = Serializer::serialize(ptr);
 
-    uintptr_t kk;
-
-    kk = Serializer::serialize(gg);
-
-    std::cout << "---->`" << kk << "`<----\n";
+    std::cout << "---->`0x" << std::hex << raw  << "`<----\n";
 
     return (0);
 }
