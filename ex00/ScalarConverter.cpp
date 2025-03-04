@@ -28,7 +28,6 @@ bool is_number(std::string s) {
 
 bool have_fract(double ff)
 {
-    // float i = f;
     double intPart = (long)ff;
     double fractionalPart = ff - intPart;
 
@@ -65,14 +64,13 @@ void ScalarConverter::convert (const std::string &input)
         std::string temp = input;
         char* end_ptr;
 
-        if (input == "f")
+        if (input == "")
             throw ("Invalid input");
         if (input.length() != 0 && input[input.length() - 1] == 'f' && input.find('.', 0) != std::string::npos)
             temp = input.substr(0, input.length() - 1);
         double value = strtod(temp.c_str(), &end_ptr);
         if (*end_ptr || input == ".")
             throw ("Invalid input");
-
         if (value >= std::numeric_limits<char>::min() && value <= std::numeric_limits<char>::max())
         {
             if (std::isprint(static_cast<int>(value)))
@@ -89,13 +87,13 @@ void ScalarConverter::convert (const std::string &input)
             std::cout << "int: " << static_cast<int>(value) << std::endl;
 
         if ((value <= std::numeric_limits<float>::max()) && (value >= -std::numeric_limits<float>::max()))
-            std::cout << "float: " << static_cast<float>(value) << (have_fract(static_cast<float>(value)) ? ".0f" : "f") << std::endl;
+            std::cout << "float: " << std::setprecision(1) << std::fixed << static_cast<float>(value)  <<  "f" << std::endl;
         else 
-            std::cout << "float: " << (value > std::numeric_limits<float>::max() ? "+" : "") << static_cast<float>(value) << "f" <<std::endl;
+            std::cout << "float: " << (value > std::numeric_limits<float>::max() ? "+" : "") << std::setprecision(1) << static_cast<float>(value) << "f" <<std::endl;
         if (value <= std::numeric_limits<double>::max() && value >= -std::numeric_limits<double>::max())
-            std::cout << "double: " << value << (have_fract(static_cast<double>(value)) ? ".0" : "") << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) << value  << std::endl;
         else
-            std::cout << "double: " << value << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) << value  << std::endl;
     }
     catch (...) {
         std::cout << "Error: Invalid input" << std::endl;
