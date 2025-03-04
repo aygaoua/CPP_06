@@ -26,17 +26,6 @@ bool is_number(std::string s) {
     return true;
 }
 
-bool have_fract(double ff)
-{
-    double intPart = (long)ff;
-    double fractionalPart = ff - intPart;
-
-    if (fractionalPart == 0.0) {
-        return (true);
-    }
-    return (false);
-}
-
 void ScalarConverter::convert (const std::string &input)
 {
     static const std::string special[] = {"nan", "-inf", "+inf", "+inff", "nanf", "-inff"};
@@ -75,7 +64,7 @@ void ScalarConverter::convert (const std::string &input)
         {
             if (std::isprint(static_cast<int>(value)))
                 std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
-            else if (!std::isprint(static_cast<int>(value)))
+            else
                 std::cout << "char: Non displayable" << std::endl;
         }
         else
