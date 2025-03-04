@@ -6,8 +6,8 @@
 int main() {
     Base *base_ptr = generate();
 
-    std::cout << "pointer :" << std::endl;
+    std::cout << "* :" << std::endl;
     identify(base_ptr);
-    std::cout << "refrrence :" << std::endl;
+    std::cout << "& :" << std::endl;
     identify(*base_ptr);
 }
